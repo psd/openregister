@@ -21,7 +21,7 @@ def test_empty_item_from_jsonl():
 
 def test_unserializable__as_jsonl():
     item = Item(name="foo", unserializable=pytest)
-    with pytest.raises(TypeError):
+    with pytest.raises((AttributeError, TypeError)):
         item.jsonl
 
 
