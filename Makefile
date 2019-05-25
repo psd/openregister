@@ -17,8 +17,9 @@ flake8:
 black:
 	black .
 
-tag:
-	git tag $(python version.py)
+bump:
+	git tag `python version.py`
+	git describe --tags
 
 dist:
 	python setup.py sdist bdist_wheel
