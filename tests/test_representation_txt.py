@@ -9,13 +9,13 @@ def test_txt_content_type():
 def test_empty_item_as_txt():
     item = Item()
     data = item.txt
-    assert data == ('{}\n')
+    assert data == ("{}\n")
 
 
 def test_empty_item_from_txt():
     item = Item()
-    item.txt = ('{}')
-    assert item.txt == ('{}\n')
+    item.txt = "{}"
+    assert item.txt == ("{}\n")
 
 
 def test_postaladdress_as_txt():
@@ -27,20 +27,24 @@ def test_postaladdress_as_txt():
     item.addressCountry = "GB"
 
     data = item.txt
-    assert data == ('addressCountry: GB\n'
-                    'addressLocality: Holborn\n'
-                    'addressRegion: London\n'
-                    'postcode: WC2B 6NH\n'
-                    'streetAddress: Aviation House, 125 Kingsway\n')
+    assert data == (
+        "addressCountry: GB\n"
+        "addressLocality: Holborn\n"
+        "addressRegion: London\n"
+        "postcode: WC2B 6NH\n"
+        "streetAddress: Aviation House, 125 Kingsway\n"
+    )
 
 
 def test_postaladdress_from_txt():
     item = Item()
-    item.txt = ('addressCountry: GB\n'
-                'addressLocality: Holborn\n'
-                'addressRegion: London\n'
-                'postcode: WC2B 6NH\n'
-                'streetAddress: Aviation House, 125 Kingsway\n')
+    item.txt = (
+        "addressCountry: GB\n"
+        "addressLocality: Holborn\n"
+        "addressRegion: London\n"
+        "postcode: WC2B 6NH\n"
+        "streetAddress: Aviation House, 125 Kingsway\n"
+    )
 
     assert item.streetAddress == "Aviation House, 125 Kingsway"
     assert item.addressLocality == "Holborn"
@@ -50,21 +54,13 @@ def test_postaladdress_from_txt():
 
 
 def test_set_of_tags_as_txt():
-    item = Item(name='foo', fields={'z', 'b', 'c', 'z'})
+    item = Item(name="foo", fields={"z", "b", "c", "z"})
     data = item.txt
-    assert data == ('fields:\n'
-                    '- b\n'
-                    '- c\n'
-                    '- z\n'
-                    'name: foo\n')
+    assert data == ("fields:\n" "- b\n" "- c\n" "- z\n" "name: foo\n")
 
 
 def test_set_of_tags_from_txt():
     item = Item()
-    item.txt = ('fields:\n'
-                '  - b\n'
-                '  - c\n'
-                '  - z\n'
-                'name: foo\n')
+    item.txt = "fields:\n" "  - b\n" "  - c\n" "  - z\n" "name: foo\n"
     assert item.name == "foo"
-    assert item.fields == ['b', 'c', 'z']
+    assert item.fields == ["b", "c", "z"]

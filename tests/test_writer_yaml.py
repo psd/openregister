@@ -20,23 +20,25 @@ def test_writer_one_item():
     writer.close()
 
     string = out.getvalue()
-    assert string == '- name: one\n'
+    assert string == "- name: one\n"
 
 
 def test_writer_many_items():
     out = io.StringIO()
     writer = Writer(out)
-    for name in ['one', 'two', 'three']:
+    for name in ["one", "two", "three"]:
         item = Item(name=name, text="hello world")
         writer.write(item)
     writer.close()
 
     string = out.getvalue()
-    assert string == ('- name: one\n'
-                      '  text: hello world\n'
-                      '\n'
-                      '- name: two\n'
-                      '  text: hello world\n'
-                      '\n'
-                      '- name: three\n'
-                      '  text: hello world\n')
+    assert string == (
+        "- name: one\n"
+        "  text: hello world\n"
+        "\n"
+        "- name: two\n"
+        "  text: hello world\n"
+        "\n"
+        "- name: three\n"
+        "  text: hello world\n"
+    )

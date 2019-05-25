@@ -4,19 +4,22 @@ from ..item import Item
 from ..writer import Writer
 
 
-content_type = 'text/csv; charset=utf-8'
-escapechar = '\\'
-lineterminator = '\r\n'
+content_type = "text/csv; charset=utf-8"
+escapechar = "\\"
+lineterminator = "\r\n"
 quotechar = '"'
 delimiter = ","
 
 
-def load(self, text,
-         lineterminator='\r\n',
-         quotechar='"',
-         delimiter=",",
-         escapechar=escapechar,
-         quoting=csv.QUOTE_MINIMAL):
+def load(
+    self,
+    text,
+    lineterminator="\r\n",
+    quotechar='"',
+    delimiter=",",
+    escapechar=escapechar,
+    quoting=csv.QUOTE_MINIMAL,
+):
     """Item from CSV representation."""
 
     f = io.StringIO(text)
@@ -29,7 +32,8 @@ def load(self, text,
         delimiter=delimiter,
         quotechar=quotechar,
         quoting=quoting,
-        lineterminator=lineterminator)
+        lineterminator=lineterminator,
+    )
 
     if reader.fieldnames:
         reader.fieldnames = [field.strip() for field in reader.fieldnames]
@@ -42,12 +46,17 @@ def load(self, text,
 
 class Writer(Writer):
     """Write CSV of items."""
-    def __init__(self, stream, fieldnames,
-                 delimiter=delimiter,
-                 lineterminator=lineterminator,
-                 quotechar=quotechar,
-                 escapechar=escapechar,
-                 quoting=csv.QUOTE_ALL):
+
+    def __init__(
+        self,
+        stream,
+        fieldnames,
+        delimiter=delimiter,
+        lineterminator=lineterminator,
+        quotechar=quotechar,
+        escapechar=escapechar,
+        quoting=csv.QUOTE_ALL,
+    ):
 
         if not quotechar:
             quoting = csv.QUOTE_NONE
@@ -59,7 +68,8 @@ class Writer(Writer):
             lineterminator=lineterminator,
             escapechar=escapechar,
             quotechar=quotechar,
-            quoting=quoting)
+            quoting=quoting,
+        )
 
         self.writer.writeheader()
 

@@ -29,10 +29,10 @@ def test_store_interface():
         store.entries()
 
     with pytest.raises(NotImplementedError):
-        store.record('foo')
+        store.record("foo")
 
     with pytest.raises(NotImplementedError):
         store.records()
 
     with pytest.raises(NotImplementedError):
-        store.register('register')
+        store.register("register")

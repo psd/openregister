@@ -26,13 +26,10 @@ def test_writer_one_item():
 def test_writer_many_items():
     out = io.StringIO()
     writer = Writer(out)
-    for name in ['one', 'two', 'three']:
+    for name in ["one", "two", "three"]:
         item = Item(name=name)
         writer.write(item)
     writer.close()
 
     string = out.getvalue()
-    assert string == ('['
-                      '{"name":"one"},'
-                      '{"name":"two"},'
-                      '{"name":"three"}]')
+    assert string == ("[" '{"name":"one"},' '{"name":"two"},' '{"name":"three"}]')

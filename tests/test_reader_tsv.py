@@ -20,10 +20,7 @@ def test_reader_one_item():
 
 
 def test_reader_many_items():
-    stream = io.StringIO("name\ttext\n"
-                         "one\t1\n"
-                         "two\t2\n"
-                         "three\t3\n")
+    stream = io.StringIO("name\ttext\n" "one\t1\n" "two\t2\n" "three\t3\n")
 
     items = reader(stream)
     assert (items.__next__()).json == '{"name":"one","text":"1"}'

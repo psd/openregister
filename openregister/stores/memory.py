@@ -23,4 +23,5 @@ class MemoryStore(Store):
         except KeyError:
             return None
 
+
 store = MemoryStore()

@@ -15,7 +15,7 @@ from openregister import Item
 def test_item_hash():
 
     item = Item()
-    assert item.json == '{}'
+    assert item.json == "{}"
     assert item.hash == "9e26dfeeb6e641a33dae4961196235bdb965b21b"
     assert item.hashkey == "tytn73vw4za2gpnojfqrsyrvxw4wlmq3"
 

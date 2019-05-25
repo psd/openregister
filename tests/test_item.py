@@ -32,19 +32,19 @@ def test_item_assignment():
     item = Item()
     item.foo = "Foo Value"
     item.bar = "Bar Value"
-    item['kebab-value'] = "A Kebab"
-    item['empty'] = ''
+    item["kebab-value"] = "A Kebab"
+    item["empty"] = ""
 
     assert item.foo == "Foo Value"
     assert item.bar == "Bar Value"
-    assert item['bar'] == "Bar Value"
-    assert item['kebab-value'] == "A Kebab"
+    assert item["bar"] == "Bar Value"
+    assert item["kebab-value"] == "A Kebab"
 
-    assert item.get('kebab-value') == "A Kebab"
-    assert item.get('a-missing-value') is None
-    assert item.get('empty') is None
+    assert item.get("kebab-value") == "A Kebab"
+    assert item.get("a-missing-value") is None
+    assert item.get("empty") is None
 
-    item.set('another', "Another Value")
+    item.set("another", "Another Value")
     assert item.another == "Another Value"
 
 
@@ -69,7 +69,7 @@ def test_empty_field_is_missing():
 def test_delete_field():
     item = Item()
     item.primitive = {"a": "a value", "b": "b value"}
-    item['b'] = ''
+    item["b"] = ""
     assert item.primitive == {"a": "a value"}
 
 
@@ -94,21 +94,23 @@ def test_postaladdress_as_primitive():
     item.addressCountry = "GB"
 
     assert item.primitive == {
-        'addressCountry': 'GB',
-        'addressLocality': 'Holborn',
-        'addressRegion': 'London',
-        'postcode': 'WC2B 6NH',
-        'streetAddress': 'Aviation House, 125 Kingsway'}
+        "addressCountry": "GB",
+        "addressLocality": "Holborn",
+        "addressRegion": "London",
+        "postcode": "WC2B 6NH",
+        "streetAddress": "Aviation House, 125 Kingsway",
+    }
 
 
 def test_postaladdress_from_primitive():
     item = Item()
     item.primitive = {
-        'addressCountry': 'GB',
-        'addressLocality': 'Holborn',
-        'addressRegion': 'London',
-        'postcode': 'WC2B 6NH',
-        'streetAddress': 'Aviation House, 125 Kingsway'}
+        "addressCountry": "GB",
+        "addressLocality": "Holborn",
+        "addressRegion": "London",
+        "postcode": "WC2B 6NH",
+        "streetAddress": "Aviation House, 125 Kingsway",
+    }
 
     assert item.streetAddress == "Aviation House, 125 Kingsway"
     assert item.addressLocality == "Holborn"
@@ -118,16 +120,12 @@ def test_postaladdress_from_primitive():
 
 
 def test_set_of_tags_as_primitive():
-    item = Item(name='foo', fields={'z', 'b', 'c', 'z'})
-    assert item.primitive == {
-        'fields': ['b', 'c', 'z'],
-        'name': 'foo'}
+    item = Item(name="foo", fields={"z", "b", "c", "z"})
+    assert item.primitive == {"fields": ["b", "c", "z"], "name": "foo"}
 
 
 def test_set_of_tags_from_primitive():
     item = Item()
-    item.primitive = {
-        'fields': ['a', 'b', 'c'],
-        'name': 'foo'}
-    assert item.name == 'foo'
-    assert item.fields == ['a', 'b', 'c']
+    item.primitive = {"fields": ["a", "b", "c"], "name": "foo"}
+    assert item.name == "foo"
+    assert item.fields == ["a", "b", "c"]

@@ -3,7 +3,7 @@ from ..writer import Writer
 import yaml
 
 
-content_type = 'application/yaml'
+content_type = "application/yaml"
 
 
 def load(self, text):
@@ -18,6 +18,7 @@ def dump(self):
 
 class Writer(Writer):
     """Write YAML array."""
+
     def __init__(self, stream, sep="\n"):
         self.stream = stream
         self.sep = sep
@@ -25,8 +26,8 @@ class Writer(Writer):
 
     def write(self, item):
         self.stream.write(
-            self.sol
-            + yaml.dump([item.primitive], default_flow_style=False))
+            self.sol + yaml.dump([item.primitive], default_flow_style=False)
+        )
         self.sol = self.sep
 
 

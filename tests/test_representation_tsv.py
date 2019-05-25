@@ -8,44 +8,32 @@ def test_tsv_content_type():
 
 def test_empty_item_as_tsv():
     item = Item()
-    assert item.tsv == ''
+    assert item.tsv == ""
 
 
 def test_simple_as_tsv():
     item = Item()
     item.a = "A value"
-    assert item.tsv == (
-        'a\n'
-        'A value\n'
-    )
+    assert item.tsv == ("a\n" "A value\n")
 
 
 def test_newlines_as_tsv():
     item = Item()
     item.a = "A value:\ncontaining a newline"
-    assert item.tsv == (
-        'a\n'
-        'A value:\\ncontaining a newline\n'
-    )
+    assert item.tsv == ("a\n" "A value:\\ncontaining a newline\n")
 
 
 def test_newlines_from_tsv():
     item = Item()
-    item.tsv = (
-        'a\n'
-        'A value:\\ncontaining a newline\n'
-    )
-    assert item.a == 'A value:\ncontaining a newline'
+    item.tsv = "a\n" "A value:\\ncontaining a newline\n"
+    assert item.a == "A value:\ncontaining a newline"
 
 
 def test_list_as_tsv():
     item = Item()
     item.a = ["one value", "two value", "three value"]
 
-    assert item.tsv == (
-        'a\n'
-        'one value;two value;three value\n'
-    )
+    assert item.tsv == ("a\n" "one value;two value;three value\n")
 
 
 def test_ignore_private_as_tsv():
@@ -56,10 +44,7 @@ def test_ignore_private_as_tsv():
     item.two = "two value"
     item._three = "three"
 
-    assert item.tsv == (
-        'one\ttwo\n'
-        'one value\ttwo value\n'
-    )
+    assert item.tsv == ("one\ttwo\n" "one value\ttwo value\n")
 
 
 def test_postaladdress_as_tsv():
@@ -72,16 +57,16 @@ def test_postaladdress_as_tsv():
 
     data = item.tsv
     assert data == (
-        'addressCountry\taddressLocality\taddressRegion\tpostcode\tstreetAddress\n'  # NOQA
-        'GB\tHolborn\tLondon\tWC2B 6NH\tAviation House, 125 Kingsway\n'              # NOQA
+        "addressCountry\taddressLocality\taddressRegion\tpostcode\tstreetAddress\n"  # NOQA
+        "GB\tHolborn\tLondon\tWC2B 6NH\tAviation House, 125 Kingsway\n"  # NOQA
     )
 
 
 def test_postaladdress_from_tsv():
     item = Item()
     item.tsv = (
-        'addressCountry\taddressLocality\taddressRegion\tpostcode\tstreetAddress\n'  # NOQA
-        'GB\tHolborn\tLondon\tWC2B 6NH\tAviation House, 125 Kingsway\n'              # NOQA
+        "addressCountry\taddressLocality\taddressRegion\tpostcode\tstreetAddress\n"  # NOQA
+        "GB\tHolborn\tLondon\tWC2B 6NH\tAviation House, 125 Kingsway\n"  # NOQA
     )
 
     assert item.streetAddress == "Aviation House, 125 Kingsway"

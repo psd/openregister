@@ -1,9 +1,9 @@
 from ..item import Item
 from ..writer import Writer
 
-content_type = 'text/tab-separated-values; charset=utf-8'
+content_type = "text/tab-separated-values; charset=utf-8"
 
-escaped_chars = [('\t', '\\t'), ('\n', '\\n'), ('\r', '\\r'), ('', '\\')]
+escaped_chars = [("\t", "\\t"), ("\n", "\\n"), ("\r", "\\r"), ("", "\\")]
 
 
 def BadBackslash():
@@ -18,7 +18,7 @@ def escape(value):
 
 
 def unescape(value):
-    if value[-1:] == '\\':
+    if value[-1:] == "\\":
         raise BadBackslash
     for a, b in escaped_chars:
         value = value.replace(b, a)
@@ -29,20 +29,20 @@ def encode(value):
     if isinstance(value, str):
         return value
 
-    return ';'.join(value)
+    return ";".join(value)
 
 
 def decode(value):
-    return value.split(';')
+    return value.split(";")
 
 
 def load_line(line):
-    return [unescape(s) for s in line.rstrip('\n').split('\t')]
+    return [unescape(s) for s in line.rstrip("\n").split("\t")]
 
 
 def load(self, text, fieldnames=None):
     """Item from TSV representation."""
-    lines = text.split('\n')
+    lines = text.split("\n")
     fieldnames = load_line(lines[0])
     values = load_line(lines[1])
     self.__dict__ = dict(zip(fieldnames, values))
@@ -60,14 +60,14 @@ def reader(stream, fieldnames=None):
 
 
 def dump_line(values):
-    return ('\t'.join(escape(encode(value)) for value in values)) + '\n'
+    return ("\t".join(escape(encode(value)) for value in values)) + "\n"
 
 
 def dump(self):
     """TSV representation."""
     dict = self.primitive
     if not dict:
-        return ''
+        return ""
     return dump_line(self.keys) + dump_line(self.values)
 
 
@@ -78,7 +78,7 @@ class Writer(Writer):
         self.stream.write(dump_line(self.fieldnames))
 
     def write(self, item):
-        values = [item.get(key, '') for key in self.fieldnames]
+        values = [item.get(key, "") for key in self.fieldnames]
         self.stream.write(dump_line(values))
 
 

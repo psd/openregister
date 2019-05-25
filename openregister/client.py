@@ -15,8 +15,8 @@ class Client(object):
 
     def config(self, name, suffix):
         "Return config variable value, defaulting to environment"
-        var = '%s_%s' % (name, suffix)
-        var = var.upper().replace('-', '_')
+        var = "%s_%s" % (name, suffix)
+        var = var.upper().replace("-", "_")
         if var in self._config:
             return self._config[var]
         return os.environ[var]
@@ -24,18 +24,18 @@ class Client(object):
     def get(self, url, params=None):
         response = requests.get(url, params=params)
         if self.logger:
-            self.logger.info("GET: %s [%s] %s" % (
-                response.url, response.status_code, response.text))
+            self.logger.info(
+                "GET: %s [%s] %s" % (response.url, response.status_code, response.text)
+            )
         return response
 
     def item(self, register, value):
-        response = self.get('%s/%s/%s.json' % (
-            self.config(register, 'register'),
-            register,
-            value))
+        response = self.get(
+            "%s/%s/%s.json" % (self.config(register, "register"), register, value)
+        )
         json = response.json()
         item = Item()
-        item.primitive = json['entry']
+        item.primitive = json["entry"]
         return item
 
     def index(self, index, field, value):
@@ -43,14 +43,14 @@ class Client(object):
         params = {
             "q": value,
             # search index has '_' instead of '-' in field names ..
-            "q.options": "{fields:['%s']}" % (field.replace('-', '_'))
+            "q.options": "{fields:['%s']}" % (field.replace("-", "_")),
         }
 
-        response = self.get(self.config(index, 'search_url'), params=params)
-        results = [hit['fields'] for hit in response.json()['hits']['hit']]
+        response = self.get(self.config(index, "search_url"), params=params)
+        results = [hit["fields"] for hit in response.json()["hits"]["hit"]]
 
         for result in results:
             for key in result:
-                result[key.replace('_', '-')] = result.pop(key)
+                result[key.replace("_", "-")] = result.pop(key)
 
         return results

@@ -6,6 +6,7 @@ class Store(object):
     page_size = 10000
 
     """Interface for storage of Items."""
+
     def __init__(self):
         pass
 
@@ -18,11 +19,11 @@ class Store(object):
             page_size = self.page_size
 
         meta = {}
-        meta['total'] = total
-        meta['page_size'] = page_size
-        meta['pages'] = math.ceil(meta['total']/page_size)
-        meta['page'] = page
-        meta['skip'] = page_size * (page-1)
+        meta["total"] = total
+        meta["page_size"] = page_size
+        meta["pages"] = math.ceil(meta["total"] / page_size)
+        meta["page"] = page
+        meta["skip"] = page_size * (page - 1)
         return meta
 
     def put(self, item):

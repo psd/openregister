@@ -11,6 +11,7 @@ class Record(object):
 
     Records are serialised as the merged entry and item
     """
+
     def __init__(self, entry=None, item=None):
         self.entry = entry
         self.item = item

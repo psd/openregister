@@ -3,7 +3,7 @@
 from reader import Reader
 from writer import Writer
 
-content_type = 'text/plain; charset=utf-8'
+content_type = "text/plain; charset=utf-8"
 name = "unknown"
 suffix = ".unknown"
 

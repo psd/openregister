@@ -4,6 +4,7 @@ from .datatypes.digest import git_hash, base32_encode
 
 class Item(object):
     """An Item, a content addressable set of attributes."""
+
     def __init__(self, **kwds):
         self.__dict__.update(kwds)
 
@@ -50,7 +51,7 @@ class Item(object):
         """Python primitive representation."""
         dict = {}
         for key, value in self.__dict__.items():
-            if not key.startswith('_'):
+            if not key.startswith("_"):
                 dict[key] = copy(value)
 
         for key in dict:

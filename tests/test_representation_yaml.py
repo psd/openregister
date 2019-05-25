@@ -9,13 +9,13 @@ def test_yaml_content_type():
 def test_empty_item_as_yaml():
     item = Item()
     data = item.yaml
-    assert data == ('{}\n')
+    assert data == ("{}\n")
 
 
 def test_empty_item_from_yaml():
     item = Item()
-    item.yaml = ('{}')
-    assert item.yaml == ('{}\n')
+    item.yaml = "{}"
+    assert item.yaml == ("{}\n")
 
 
 def test_postaladdress_as_yaml():
@@ -27,20 +27,24 @@ def test_postaladdress_as_yaml():
     item.addressCountry = "GB"
 
     data = item.yaml
-    assert data == ('addressCountry: GB\n'
-                    'addressLocality: Holborn\n'
-                    'addressRegion: London\n'
-                    'postcode: WC2B 6NH\n'
-                    'streetAddress: Aviation House, 125 Kingsway\n')
+    assert data == (
+        "addressCountry: GB\n"
+        "addressLocality: Holborn\n"
+        "addressRegion: London\n"
+        "postcode: WC2B 6NH\n"
+        "streetAddress: Aviation House, 125 Kingsway\n"
+    )
 
 
 def test_postaladdress_from_yaml():
     item = Item()
-    item.yaml = ('addressCountry: GB\n'
-                 'addressLocality: Holborn\n'
-                 'addressRegion: London\n'
-                 'postcode: WC2B 6NH\n'
-                 'streetAddress: Aviation House, 125 Kingsway\n')
+    item.yaml = (
+        "addressCountry: GB\n"
+        "addressLocality: Holborn\n"
+        "addressRegion: London\n"
+        "postcode: WC2B 6NH\n"
+        "streetAddress: Aviation House, 125 Kingsway\n"
+    )
 
     assert item.streetAddress == "Aviation House, 125 Kingsway"
     assert item.addressLocality == "Holborn"
@@ -50,21 +54,13 @@ def test_postaladdress_from_yaml():
 
 
 def test_set_of_tags_as_yaml():
-    item = Item(name='foo', fields={'z', 'b', 'c', 'z'})
+    item = Item(name="foo", fields={"z", "b", "c", "z"})
     data = item.yaml
-    assert data == ('fields:\n'
-                    '- b\n'
-                    '- c\n'
-                    '- z\n'
-                    'name: foo\n')
+    assert data == ("fields:\n" "- b\n" "- c\n" "- z\n" "name: foo\n")
 
 
 def test_set_of_tags_from_yaml():
     item = Item()
-    item.yaml = ('fields:\n'
-                 '  - b\n'
-                 '  - c\n'
-                 '  - z\n'
-                 'name: foo\n')
+    item.yaml = "fields:\n" "  - b\n" "  - c\n" "  - z\n" "name: foo\n"
     assert item.name == "foo"
-    assert item.fields == ['b', 'c', 'z']
+    assert item.fields == ["b", "c", "z"]

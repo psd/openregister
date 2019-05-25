@@ -14,7 +14,7 @@ def test_writer_zero_items():
 
 def test_writer_zero_items_titles():
     out = io.StringIO()
-    writer = Writer(out, fieldnames=['one', 'two', 'three'])
+    writer = Writer(out, fieldnames=["one", "two", "three"])
     writer.close()
 
     string = out.getvalue()
@@ -35,7 +35,7 @@ def test_writer_one_item():
 def test_writer_many_items():
     out = io.StringIO()
     writer = Writer(out, fieldnames=["name", "text"])
-    for name in ['one', 'two', 'three']:
+    for name in ["one", "two", "three"]:
         item = Item(name=name, text="hello world")
         writer.write(item)
     writer.close()
@@ -45,4 +45,5 @@ def test_writer_many_items():
         '"name","text"\r\n'
         '"one","hello world"\r\n'
         '"two","hello world"\r\n'
-        '"three","hello world"\r\n')
+        '"three","hello world"\r\n'
+    )

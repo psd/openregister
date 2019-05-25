@@ -3,10 +3,10 @@ from ..writer import Writer
 import json
 import re
 
-START = re.compile('[ \t\n\r\[]*', re.VERBOSE | re.MULTILINE | re.DOTALL)
-END = re.compile('[ \t\n\r,\]]*', re.VERBOSE | re.MULTILINE | re.DOTALL)
+START = re.compile("[ \t\n\r\[]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
+END = re.compile("[ \t\n\r,\]]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
 
-content_type = 'application/json'
+content_type = "application/json"
 
 
 def load(self, text):
@@ -17,10 +17,8 @@ def load(self, text):
 def dump(self):
     """Item as a JSON representation."""
     return json.dumps(
-        self.primitive,
-        sort_keys=True,
-        ensure_ascii=False,
-        separators=(',', ':'))
+        self.primitive, sort_keys=True, ensure_ascii=False, separators=(",", ":")
+    )
 
 
 def reader(stream):
@@ -39,6 +37,7 @@ def reader(stream):
 
 class Writer(Writer):
     """Write Items to a stream as a JSON array."""
+
     def __init__(self, stream, start="[", sep=",", eol="", end="]"):
         self.stream = stream
         self.sep = sep

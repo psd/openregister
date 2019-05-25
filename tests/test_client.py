@@ -3,12 +3,11 @@ from openregister.client import Client
 
 
 def test_client_url():
-    client = Client(config={
-        'ADDRESS_REGISTER': 'https://address.register.example.org'
-    })
+    client = Client(config={"ADDRESS_REGISTER": "https://address.register.example.org"})
     assert client.logger is None
-    assert client.config('address', 'register') ==\
-        'https://address.register.example.org'
+    assert (
+        client.config("address", "register") == "https://address.register.example.org"
+    )
 
 
 #
