@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 import os
 import sys
+from version import get_version
 
 
 def get_long_description():
@@ -9,11 +10,6 @@ def get_long_description():
         encoding="utf8",
     ) as fp:
         return fp.read()
-
-
-def get_version():
-    "TBD: versioneer github tags"
-    return "0.8.4"
 
 
 # Only install black on Python 3.6 or higher
@@ -37,7 +33,7 @@ setup(
     install_requires=[
         "PyYAML==3.13",
         "requests==2.22.0",
-        "tempdir==0.7.1"
+        "tempdir==0.7.1",
     ],
     entry_points="""
         [console_scripts]
@@ -51,7 +47,8 @@ setup(
             "pytest>=4.0.2",
             "python-coveralls>=2.9.1",
             "twine>=1.13.0",
-        ] + maybe_black
+        ]
+        + maybe_black
     },
     tests_require=["openregister[test]"],
     classifiers=[

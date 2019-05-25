@@ -1,4 +1,4 @@
-.PHONY: all black flake8 test coverage coveralls dist clean
+.PHONY: all black flake8 test coverage coveralls tag dist clean
 
 all:	black flake8 test coverage
 
@@ -12,10 +12,13 @@ coveralls:
 	py.test --cov openregister tests/ --cov-report=term --cov-report=html
 
 flake8:
-	flake8 openregister tests
+	flake8 .
 
 black:
-	black openregister tests
+	black .
+
+tag:
+	git tag $(python version.py)
 
 dist:
 	python setup.py sdist bdist_wheel
