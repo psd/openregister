@@ -9,7 +9,7 @@
 
 *Publishing tools for GOV.UK style registers.*
 
-This product is intended to be a simple to install and extend for use by authorities and administrations outside of the [GOV.UK platform](https://www.gov.uk/government/publications/registers/registers).
+A self-contained and easily installed [GOV.UK register product](https://www.gov.uk/government/publications/registers/registers) intended for use by devolved authorities and administrations.
 
 ## Installation
 
