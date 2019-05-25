@@ -8,7 +8,7 @@ content_type = "application/yaml"
 
 def load(self, text):
     """Item from YAML representation."""
-    self.__dict__ = yaml.load(text)
+    self.__dict__ = yaml.safe_load(text)
 
 
 def dump(self):

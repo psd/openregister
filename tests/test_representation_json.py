@@ -31,7 +31,7 @@ def test_empty_item_from_json_with_whitespace():
 
 def test_unserializable__as_json():
     item = Item(name="foo", unserializable=pytest)
-    with pytest.raises(AttributeError):
+    with pytest.raises(TypeError):
         item.json
 
 

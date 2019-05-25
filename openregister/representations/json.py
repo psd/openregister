@@ -3,8 +3,8 @@ from ..writer import Writer
 import json
 import re
 
-START = re.compile("[ \t\n\r\[]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
-END = re.compile("[ \t\n\r,\]]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
+START = re.compile(r"[ \t\n\r\[]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
+END = re.compile(r"[ \t\n\r,\]]*", re.VERBOSE | re.MULTILINE | re.DOTALL)
 
 content_type = "application/json"
 
