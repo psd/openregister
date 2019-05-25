@@ -35,7 +35,7 @@ setup(
     package_data={"datasette": ["templates/*.html"]},
     include_package_data=True,
     install_requires=[
-        "PyYAML==3.11",
+        "PyYAML==3.13",
         "requests==2.22.0",
         "tempdir==0.7.1"
     ],
