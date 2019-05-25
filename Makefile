@@ -1,4 +1,4 @@
-.PHONY: all black flake8 test coverage coveralls tag dist clean
+.PHONY: all black flake8 test coverage coveralls bump dist clean
 
 all:	black flake8 test coverage
 
@@ -18,8 +18,7 @@ black:
 	black .
 
 bump:
-	git tag `python version.py`
-	git describe --tags
+	git tag $(shell python version.py)
 
 dist:
 	python setup.py sdist bdist_wheel
