@@ -33,6 +33,7 @@ setup(
     install_requires=[
         "PyYAML==3.13",
         "requests==2.22.0",
+        "Sanic==0.7.0",
         "tempdir==0.7.1",
     ],
     entry_points="""
