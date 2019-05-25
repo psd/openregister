@@ -2,7 +2,7 @@
 
 [![Package](https://img.shields.io/pypi/v/openregister.svg)](https://pypi.python.org/pypi/openregister/)
 [![Build](https://travis-ci.org/psd/openregister.svg?branch=master)](https://travis-ci.org/psd/openregister)
-[![Coverage](https://coveralls.io/repos/psd/openregister/badge.svg?branch=master&service=github)](https://coveralls.io/github/psd/openregister?branch=master)
+[![Coverage](https://coveralls.io/repos/github/psd/openregister/badge.svg?branch=master)](https://coveralls.io/github/psd/openregister?branch=master)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/psd/openregister/blob/master/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://black.readthedocs.io/en/stable/)
 
