@@ -13,7 +13,7 @@ def get_long_description():
 
 def get_version():
     "TBD: versioneer github tags"
-    return "0.8.0"
+    return "0.8.1"
 
 
 # Only install black on Python 3.6 or higher
@@ -49,7 +49,8 @@ setup(
             "coverage>=4.5.3",
             "flake8>=3.7.7",
             "pytest>=4.0.2",
-            "python-coveralls>=2.9.1"
+            "python-coveralls>=2.9.1",
+            "twine>=1.13.0",
         ] + maybe_black
     },
     tests_require=["openregister[test]"],
