@@ -27,7 +27,6 @@ setup(name='openregister',
         'Programming Language :: Python :: 3.4',
         ],
       install_requires=[
-        'PyYAML>=3.11',
-        'pymongo>=2.7.2'
+        'PyYAML>=3.11'
       ]
 )

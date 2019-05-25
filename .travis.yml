@@ -6,8 +6,6 @@ install:
 - pip install .
 - pip install -r requirements/test.txt
 - pip install python-coveralls
-services:
-- mongodb
 script:
 - make all
 after_success:

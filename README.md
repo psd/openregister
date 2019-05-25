@@ -13,7 +13,3 @@ Requires Python 3, we recommend using a [virtualenv](https://virtualenvwrapper.r
 
     (openregister) make init
     (openregister) make
-
-The MongoDB store tests require mongo to be running:
-
-    $ mongod
