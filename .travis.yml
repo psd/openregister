@@ -8,6 +8,6 @@ python:
 install:
 - make init
 script:
-- make all
+- make flake8 test coverage
 after_success:
 - coveralls --ignore-errors
