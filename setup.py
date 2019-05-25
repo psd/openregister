@@ -13,7 +13,7 @@ def get_long_description():
 
 def get_version():
     "TBD: versioneer github tags"
-    return "0.8.3"
+    return "0.8.4"
 
 
 # Only install black on Python 3.6 or higher

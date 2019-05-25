@@ -18,7 +18,8 @@ black:
 	black openregister tests
 
 dist:
-	python3 setup.py sdist upload
+	python setup.py sdist bdist_wheel
+	twine upload dist/*
 
 init:
 	pip install .[test]
