@@ -11,3 +11,4 @@ htmlcov/
 demodata/
 .DS_Store
 *.swp
+.eggs
