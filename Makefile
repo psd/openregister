@@ -1,6 +1,6 @@
-.PHONY: all test coverage coveralls flake8 dist clean
+.PHONY: all black flake8 test coverage coveralls dist clean
 
-all:	flake8 test coverage
+all:	black flake8 test coverage
 
 test:
 	py.test
@@ -14,12 +14,14 @@ coveralls:
 flake8:
 	flake8 openregister tests
 
+black:
+	black openregister tests
+
 dist:
 	python3 setup.py sdist upload
 
 init:
-	pip3 install -r requirements/production.txt
-	pip3 install -r requirements/test.txt
+	pip install .[test]
 
 clean:
 	-find . -name "*.pyc" | xargs rm -f
