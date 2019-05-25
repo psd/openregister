@@ -54,7 +54,7 @@ setup(
     },
     tests_require=["openregister[test]"],
     classifiers=[
-        "Development Status :: 1 - Alpha",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Topic :: Database",
         "License :: OSI Approved :: MIT License",
