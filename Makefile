@@ -1,4 +1,4 @@
-.PHONY: all black flake8 test coverage coveralls bump dist clean
+.PHONY: all black flake8 test coverage coveralls bump dist upload clean
 
 all:	black flake8 test coverage
 
@@ -22,8 +22,11 @@ bump:
 
 dist:
 	python setup.py sdist bdist_wheel
+
+upload:	dist
 	twine upload dist/*
 
+# install dependencies
 init:
 	pip install .[test]
 
