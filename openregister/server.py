@@ -15,7 +15,7 @@ class RegisterServer:
         return url
 
     def config_view(self):
-        return DataView.as_view(self, "config.json", lambda: self._config)
+        return DataView.as_view(self, "config", lambda: self._config)
 
     def server(self):
         server = Sanic(__name__)
