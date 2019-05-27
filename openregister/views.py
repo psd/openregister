@@ -2,6 +2,7 @@ import json
 from sanic import response
 from sanic.views import HTTPMethodView
 
+
 async def favicon(request):
     return response.text("")
 
@@ -16,8 +17,10 @@ class DataView(HTTPMethodView):
 
     async def get(self, request, suffix):
         data = self.callback()
-        if suffix == '.json':
+        if suffix == ".json":
             headers = {}
-            content_type="application/json"
+            content_type = "application/json"
             representation = json
-            return response.HTTPResponse(representation.dumps(data), content_type=content_type, headers=headers)
+            return response.HTTPResponse(
+                representation.dumps(data), content_type=content_type, headers=headers
+            )

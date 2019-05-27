@@ -20,7 +20,7 @@ black:
 bump:
 	git tag $(shell python version.py)
 
-dist:
+dist: all
 	python setup.py sdist bdist_wheel
 
 upload:	dist

@@ -1,4 +1,4 @@
-from sanic import Sanic, response
+from sanic import Sanic
 import urllib.parse
 from .views import DataView, favicon
 from .config import DEFAULT_CONFIG
