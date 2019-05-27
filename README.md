@@ -22,7 +22,7 @@ A self-contained and easily installed [GOV.UK register product](https://www.gov.
 
 Runs a web server serving an index of registers on http://localhost:8088/
 
-## Command options
+## Command line
 
     $ openregister --help
 
@@ -37,7 +37,7 @@ Runs a web server serving an index of registers on http://localhost:8088/
     Commands:
       serve*
 
-## Server options
+## Server command
 
     $ openregister serve --help
 
@@ -52,10 +52,20 @@ Runs a web server serving an index of registers on http://localhost:8088/
                            changes
       --help               Show this message and exit.
 
-## Development
+## Development environment
 
 Development requires Python 3.5 or later, we recommend using a [virtual environment](https://docs.python.org/3/library/venv.html):
 
     make init
     make
     python -m openregister --help
+
+## Release procedure
+
+    make bump
+    make dist
+    git push && git push --tags
+
+Wait for CI to pass.
+
+    make upload
