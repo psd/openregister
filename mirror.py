@@ -9,7 +9,7 @@ from cachecontrol.caches.file_cache import FileCache
 from openregister import Item
 from openregister.stores.memory import MemoryStore
 
-cache = CacheControl(requests.Session(), cache=FileCache(".cache"))
+cache = CacheControl(requests.Session(), cache=FileCache(".cache", forever=True))
 
 def load_register(store, name, domain='register.gov.uk', protocol='https', path='download-register'):
     url = '{protocol}://{name}.{domain}/{path}'.format(protocol=protocol, name=name, domain=domain, path=path)
@@ -34,5 +34,7 @@ for register in registers:
     if not register is None:
         load_register(store, name=register)
 
-for item in store.items:
-    print(item, store.item(item).json)
+#for item in store.items:
+    #print(item, store.item(item).json)
+
+print(len(store.items))
