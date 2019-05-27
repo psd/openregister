@@ -31,8 +31,10 @@ setup(
     package_data={"openregister": ["templates/*.html"]},
     include_package_data=True,
     install_requires=[
+        "CacheControl==0.12.5",
         "click==7.0",
         "click-default-group==1.2",
+        "lockfile==0.12.2",
         "PyYAML==3.13",
         "requests==2.22.0",
         "Sanic==0.7.0",
