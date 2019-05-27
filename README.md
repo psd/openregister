@@ -1,4 +1,4 @@
-# Openregister
+# OpenRegister
 
 [![Package](https://img.shields.io/pypi/v/openregister.svg)](https://pypi.python.org/pypi/openregister/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/openregister.svg)](https://pypi.python.org/pypi/openregister/)
@@ -14,11 +14,48 @@ A self-contained and easily installed [GOV.UK register product](https://www.gov.
 
 ## Installation
 
-    $ pip3 install openregister
+    pip3 install openregister
 
-## Dependencies
+## Basic usage
 
-Requires Python 3.6 or later, we recommend using a [virtual environment](https://docs.python.org/3/library/venv.html):
+    openregister serve /path/to/register.json
 
-    $ make init
-    $ make
+Runs a web server serving an index of registers on http://localhost:8088/
+
+## Command options
+
+    $ openregister --help
+
+    Usage: openregister [OPTIONS] COMMAND [ARGS]...
+
+      OpenRegister:  publishing tools for GOV.UK style registers.
+
+    Options:
+      --version  Show the version and exit.
+      --help     Show this message and exit.
+
+    Commands:
+      serve*
+
+## Server options
+
+    $ openregister serve --help
+
+    Usage: openregister serve [OPTIONS]
+
+    Options:
+      -h, --host TEXT      host for server, defaults to 127.0.0.1
+      -r, --register TEXT  Serve a single register, otherwise serve all know
+                           registers as a catalog
+      -p, --port INTEGER   port for server, defaults to 8088
+      -d, --debug          More verbose logging and automatically reload on
+                           changes
+      --help               Show this message and exit.
+
+## Development
+
+Development requires Python 3.5 or later, we recommend using a [virtual environment](https://docs.python.org/3/library/venv.html):
+
+    make init
+    make
+    python -m openregister --help

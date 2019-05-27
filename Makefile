@@ -1,4 +1,4 @@
-.PHONY: all black flake8 test coverage coveralls bump dist upload clean
+.PHONY: all black flake8 test coverage coveralls bump dist upload help clean
 
 all:	black flake8 test coverage
 
@@ -29,6 +29,12 @@ upload:	dist
 # install dependencies
 init:
 	pip install .[test]
+
+serve:
+	python -m openregister serve --debug
+
+help:
+	python -m openregister --help
 
 clean:
 	-find . -name "*.pyc" | xargs rm -f
