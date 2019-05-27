@@ -20,15 +20,15 @@ if sys.version_info > (3, 6):
 setup(
     name="openregister",
     version=get_version(),
-    description="Record decisions as data in a register.",
+    description="Publishing tools for GOV.UK style registers",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     author="Paul Downey",
     author_email="paul.downey@whatfettle.com",
     license="MIT",
-    url="https://github.com/openregister/openregister-python",
+    url="https://github.com/psd/openregister",
     packages=find_packages(exclude="tests"),
-    package_data={"datasette": ["templates/*.html"]},
+    package_data={"openregister": ["templates/*.html"]},
     include_package_data=True,
     install_requires=[
         "PyYAML==3.13",
