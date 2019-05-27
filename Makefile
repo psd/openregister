@@ -31,7 +31,7 @@ init:
 	pip install .[test]
 
 serve:
-	python -m openregister serve --debug
+	python -m openregister serve --debug --reload
 
 help:
 	python -m openregister --help
