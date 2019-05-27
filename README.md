@@ -62,10 +62,18 @@ Development requires Python 3.5 or later, we recommend using a [virtual environm
 
 ## Release procedure
 
+Update the tagged version number:
+
     make bump
+
+Build the wheel and egg files:
+
     make dist
+
+Push to GitHub:
+
     git push && git push --tags
 
-Wait for CI to pass.
+Wait for the [continuous integration tests](https://pypi.python.org/pypi/openregister/) to pass and then upload to [PyPI](https://pypi.python.org/pypi/openregister/):
 
     make upload
