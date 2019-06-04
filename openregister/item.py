@@ -22,6 +22,9 @@ class Item(object):
         self.__dict__[key] = value
         return value
 
+    def __str__(self):
+        return "item({})".format(self.hash)
+
     def get(self, key, default=None):
         return self.__getitem__(key, default)
 
