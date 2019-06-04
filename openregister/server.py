@@ -5,7 +5,7 @@ from .config import DEFAULT_CONFIG
 
 
 class RegisterServer:
-    def __init__(self, config=None, register=None):
+    def __init__(self, config=None, store=None):
         self._config = dict(DEFAULT_CONFIG, **(config or {}))
 
     def absolute_url(self, request, path):

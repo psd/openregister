@@ -45,8 +45,6 @@ Runs a web server serving an index of registers on http://localhost:8088/
 
     Options:
       -h, --host TEXT      host for server, defaults to 127.0.0.1
-      -r, --register TEXT  Serve a single register, otherwise serve all know
-                           registers as a catalog
       -p, --port INTEGER   port for server, defaults to 8088
       -d, --debug          More verbose logging and automatically reload on
                            changes
