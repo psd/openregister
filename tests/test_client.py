@@ -1,13 +1,10 @@
 # import pytest
-from openregister.client import Client
+from openregister.client import RegisterClient
 
 
 def test_client_url():
-    client = Client(config={"ADDRESS_REGISTER": "https://address.register.example.org"})
-    assert client.logger is None
-    assert (
-        client.config("address", "register") == "https://address.register.example.org"
-    )
+    client = RegisterClient()
+    assert client is not None
 
 
 #
