@@ -44,5 +44,4 @@ class RegisterClient(object):
             if info.filename.startswith("item/"):
                 item = Item()
                 item.json = zipfile.open(info.filename).read().decode("utf-8")
-                logging.debug(item)
                 store.put(item)

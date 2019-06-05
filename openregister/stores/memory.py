@@ -1,3 +1,4 @@
+import logging
 from ..store import Store
 
 
@@ -9,6 +10,7 @@ class MemoryStore(Store):
     latest = {}
 
     def put(self, item):
+        logging.debug("MemoryStore.put({})".format(item))
         hash = item.hash
         self.items[hash] = item
 
