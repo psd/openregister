@@ -8,7 +8,6 @@ from zipfile import ZipFile
 from .item import Item
 
 
-
 class RegisterClient(object):
 
     """
@@ -20,7 +19,9 @@ class RegisterClient(object):
         if cache is None:
             # sticky local cache directory for testing
             cache = FileCache(".cache", forever=True)
-        self.session = CacheControl(requests.Session(), cache=cache, heuristic=ExpiresAfter(days=30))
+        self.session = CacheControl(
+            requests.Session(), cache=cache, heuristic=ExpiresAfter(days=30)
+        )
 
     def get(self, url, params=None):
         response = self.session.get(url, params=params)

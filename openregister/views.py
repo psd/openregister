@@ -33,11 +33,11 @@ class ItemView(HTTPMethodView):
         self.callback = callback
 
     async def get(self, request, key, suffix):
-        print('key:', key)
-        print('suffix:', suffix)
         item = self.callback(key)
         if suffix == ".json":
             headers = {}
             content_type = "application/json"
             data = item.json
-            return response.HTTPResponse(data, content_type=content_type, headers=headers)
+            return response.HTTPResponse(
+                data, content_type=content_type, headers=headers
+            )

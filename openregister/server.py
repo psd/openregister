@@ -26,6 +26,8 @@ class RegisterServer:
 
         server.add_route(favicon, "/favicon.ico")
         server.add_route(self.config_view(), r"/config<suffix:(\.json)?$>")
-        server.add_route(self.item_view("item"), r"/item/<key:[a-z0-9]+><suffix:(\.json)?$>")
+        server.add_route(
+            self.item_view("item"), r"/item/<key:[a-z0-9]+><suffix:(\.json)?$>"
+        )
 
         return server
