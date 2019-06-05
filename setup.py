@@ -48,6 +48,7 @@ setup(
     setup_requires=["pytest-runner"],
     extras_require={
         "test": [
+            "aiohttp==3.5.4",
             "coverage>=4.5.3",
             "flake8>=3.7.7",
             "pytest>=4.0.2",
