@@ -2,9 +2,11 @@ import logging
 import requests
 from cachecontrol import CacheControl
 from cachecontrol.caches.file_cache import FileCache
+from cachecontrol.heuristics import ExpiresAfter
 from io import BytesIO
 from zipfile import ZipFile
 from .item import Item
+
 
 
 class RegisterClient(object):
@@ -16,8 +18,9 @@ class RegisterClient(object):
     def __init__(self, config={}, cache=None):
         self.config = config
         if cache is None:
+            # sticky local cache directory for testing
             cache = FileCache(".cache", forever=True)
-        self.session = CacheControl(requests.Session(), cache=cache)
+        self.session = CacheControl(requests.Session(), cache=cache, heuristic=ExpiresAfter(days=30))
 
     def get(self, url, params=None):
         response = self.session.get(url, params=params)
