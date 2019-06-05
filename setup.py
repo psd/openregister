@@ -52,6 +52,7 @@ setup(
             "flake8>=3.7.7",
             "pytest>=4.0.2",
             "python-coveralls>=2.9.1",
+            "requests-mock>=1.6.0",
             "twine>=1.13.0",
         ]
         + maybe_black
